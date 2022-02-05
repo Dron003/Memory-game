@@ -2,25 +2,39 @@
 {
     class Program
     {
+        
         static void Main(string[] args)
         {
+           Timer timer = new Timer();
+           timer.start();
+
            bool play = true;
            while (play) {
-            int score = 0;
+            long score = 0;
+            int attemps = 0;
             Game game = new Game();
             while(game._current_state == Game.State.Play)
                 if (game.MakeGuess())
                     score++;
+            timer.stop();
             switch(game._current_difficulty) {
                 case Game.Difficulty.Easy:
                     score += game.GetGuesses();
+                    score += timer.secondsElapsed() / 2;
+                    attemps = 10 - game.GetGuesses();
                     break;
                 case Game.Difficulty.Hard:
                     score += game.GetGuesses();
+                    score += timer.secondsElapsed();
                     score *= 2;
+                    attemps = 15 - game.GetGuesses();
                     break;
             }        
+
+            
+           
             Console.WriteLine("Game over! Your score is: " + score);
+            Console.WriteLine("You made it for " + timer.secondsElapsed() + " seconds and " + attemps + " attemps!");
             Console.WriteLine("Want to play again? (Y\\N)");
             switch(Console.ReadLine()) {
                 case "Y":
