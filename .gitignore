@@ -57,23 +57,6 @@ dkms.conf
 
 # Binaries and VScode config files
 
-bin/Debug/net6.0/Memory-game.deps.json
-bin/Debug/net6.0/Memory-game.runtimeconfig.json
-.vscode/launch.json
-.vscode/tasks.json
+bin
 Memory-game.csproj
-obj/Memory-game.csproj.nuget.dgspec.json
-obj/Memory-game.csproj.nuget.g.props
-obj/Memory-game.csproj.nuget.g.targets
-obj/project.assets.json
-obj/project.nuget.cache
-obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs
-obj/Debug/net6.0/Memory-game.AssemblyInfo.cs
-obj/Debug/net6.0/Memory-game.AssemblyInfoInputs.cache
-obj/Debug/net6.0/Memory-game.assets.cache
-obj/Debug/net6.0/Memory-game.csproj.AssemblyReference.cache
-obj/Debug/net6.0/Memory-game.csproj.CoreCompileInputs.cache
-obj/Debug/net6.0/Memory-game.csproj.FileListAbsolute.txt
-obj/Debug/net6.0/Memory-game.GeneratedMSBuildEditorConfig.editorconfig
-obj/Debug/net6.0/Memory-game.genruntimeconfig.cache
-obj/Debug/net6.0/Memory-game.GlobalUsings.g.cs
+obj
