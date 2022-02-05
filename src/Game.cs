@@ -126,7 +126,7 @@ namespace memory_game {
         public bool MakeGuess() {
             DrawBoard();
             // Returns true if guess is good
-            Console.Write("Chose column and from first row: ");
+            Console.Write("Chose column from first row: ");
             string? userInputA;
             while (true)
             {
@@ -160,7 +160,7 @@ namespace memory_game {
             Console.Clear();
             coveredMatrixA[int.Parse(userInputA[1].ToString()) - 1] = true;
             DrawBoard();
-            Console.Write("Chose column and from second row: ");
+            Console.Write("Chose column from second row: ");
             
             string? userInputB;
             while (true)
