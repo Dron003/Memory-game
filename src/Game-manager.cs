@@ -5,12 +5,12 @@
 
         static void Main(string[] args)
         {
-           Timer timer = new Timer();
-           timer.start();
            Ascii.print(Ascii.drawings.logo);
 
            bool play = true;
            while (play) {
+            Timer timer = new Timer();
+            timer.start();
             long score = 0;
             int attemps = 0;
             Game game = new Game();
@@ -23,12 +23,16 @@
                     score += game.GetGuesses();
                     score -= timer.secondsElapsed() / 10;
                     attemps = 10 - game.GetGuesses();
+                    if (score < 0)
+                        score = 0;
                     break;
                 case Game.Difficulty.Hard:
                     score += game.GetGuesses();
                     score -= timer.secondsElapsed() / 20;
                     score *= 2;
                     attemps = 15 - game.GetGuesses();
+                    if (score < 0)
+                        score = 0;
                     break;
             }        
 
