@@ -2,7 +2,7 @@
 {
     class Program
     {
-        
+
         static void Main(string[] args)
         {
            Timer timer = new Timer();
@@ -35,6 +35,8 @@
            
             Console.WriteLine("Game over! Your score is: " + score);
             Console.WriteLine("You made it for " + timer.secondsElapsed() + " seconds and " + attemps + " attemps!");
+            File_manager.Save_High_Score(timer.secondsElapsed(), game.GetGuesses(), score);
+            File_manager.printHighScore();
             Console.WriteLine("Want to play again? (Y\\N)");
             switch(Console.ReadLine()) {
                 case "Y":
@@ -46,6 +48,6 @@
                 break;
             }
            }
-        }
+        }  
     }
-}
+} 
