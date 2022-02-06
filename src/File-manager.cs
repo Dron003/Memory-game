@@ -25,24 +25,32 @@ namespace memory_game {
         }
         public static void Save_High_Score(long time, int guesses, long score) {
             Console.WriteLine("Save your highscore? (Y\\N)");
-         /*  switch(Console.ReadLine()) {
+          switch(Console.ReadLine()) {
                 case "Y":
                 case "y":
                 break;
                 default:
                 return;
-            } */
+            } 
 
             Console.WriteLine("Enter your name: ");
-            string? _username = "dolota2";
-           /* while (true) {
+            string? _username = "";
+            while (true) {
                 _username = Console.ReadLine();
                 if (_username != null && _username.Contains(';')) {
                     Console.WriteLine("Username cannot contain ';'");
                     continue;
                 }
+                if (_username != null && _username.Count() > 12) {
+                    Console.WriteLine("Username is too long");
+                    continue;
+                }
+                if (_username != null && _username.Count() < 3) {
+                    Console.WriteLine("Username is too short");
+                    continue;
+                }
                 break;
-            } */
+            } 
             
 
             writeToFile(time, guesses, score, _username);
@@ -85,13 +93,13 @@ namespace memory_game {
                 });
 
             Console.WriteLine("Username\tScore\tTime\tGuesses\tDate");
-            int b = 0;
-            if (highscores.Capacity < 10) {
-                b = highscores.Capacity;
+            int b = 10;
+            if (highscores.Count < 10) {
+                b = highscores.Count;
             }
             
             for (int i = 0; i < b; i++) {
-                 Console.Write((i+1).ToString() + ") " + highscores.ElementAt(i)[3] + "\t\t" + highscores[i][2] + '\t' + highscores[i][0] + "s\t" + highscores[i][1] + "g\tat " + highscores[i][4] + '\n');
+                 Console.Write((i+1).ToString() + ") " + String.Format("{0,-10}", highscores[i][3].ToString()) + "\t" + highscores[i][2] + '\t' + highscores[i][0] + "s\t" + highscores[i][1] + "g\tat " + highscores[i][4] + '\n');
              }
 
              sr.Close();
