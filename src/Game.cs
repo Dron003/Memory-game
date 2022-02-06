@@ -22,8 +22,8 @@ namespace memory_game {
         private int guesses = 2;
         public Game() {
             _words = File_manager.Load_words();
-            _current_difficulty = ChooseDifficulty();
             _current_state = State.Play;
+            _current_difficulty = ChooseDifficulty();
             _words_in_turn = GetWords(_current_difficulty);
             _words_to_guess = RandomiseWords(_words_in_turn);
 
@@ -35,6 +35,7 @@ namespace memory_game {
             Console.WriteLine("Choose difficulty:");
             Console.WriteLine("1) Easy - 4 word pairs and 10 chances");
             Console.WriteLine("2) Hard - 8 word pairs and 15 chances");
+            Console.WriteLine("3) Show highscores");
             string? playerChoice = Console.ReadLine();
 
             switch (playerChoice)
@@ -49,6 +50,10 @@ namespace memory_game {
                     System.Console.WriteLine("So you've chosen death");
                     guesses = 15;
                     return Difficulty.Hard;
+                case "3":
+                    _current_state = State.Score;
+                    guesses = 0;
+                    return Difficulty.Easy;
                 default:
                     System.Console.WriteLine("There is no option: " + playerChoice + " easy difficulty will be chosen");
                     return Difficulty.Easy;
