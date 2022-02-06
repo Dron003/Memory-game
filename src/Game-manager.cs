@@ -7,6 +7,7 @@
         {
            Timer timer = new Timer();
            timer.start();
+           Ascii.print(Ascii.drawings.logo);
 
            bool play = true;
            while (play) {

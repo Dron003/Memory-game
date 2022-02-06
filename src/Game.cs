@@ -40,11 +40,13 @@ namespace memory_game {
             switch (playerChoice)
             {
                 case "1":
+                Ascii.print(Ascii.drawings.cards);
                     System.Console.WriteLine("You've chosen easy difficulty");
                     guesses = 10;
                     return Difficulty.Easy;
                 case "2":
-                    System.Console.WriteLine("You've chosen hard difficulty");
+                    Ascii.print(Ascii.drawings.skull);
+                    System.Console.WriteLine("So you've chosen death");
                     guesses = 15;
                     return Difficulty.Hard;
                 default:
